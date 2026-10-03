@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>¡Feliz Día, Ivana! • Día 3: El Regalo de los Amigos </title>
+    <title>¡Feliz Día, Ivana! • Día 3: El Regalo de los Amigos 💚</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,7 +91,7 @@
                     <div class="text-4xl sm:text-5xl mb-2 animate-float">🛡️</div>
                     <h2 class="font-pixel text-xs sm:text-sm text-emerald-400 mb-3 leading-relaxed">¡DEFIENDE TU CORAZÓN!</h2>
                     <p class="text-xs text-emerald-100 mb-4 max-w-xs leading-relaxed">
-                        Hola Ivana. Dispara <b>rayos de amistad 💚</b> para destruir las energías negativas (😈🚫) que avanzan. ¡No dejes que lleguen a tu corazón!
+                        Hola Ivana. Dispara <b>rayos de amistad 💚</b> para destruir las energías negativas (😈) que avanzan. ¡No dejes que lleguen a tu corazón!
                     </p>
                     <button onclick="startGame()" class="btn-touch font-pixel text-[10px] sm:text-xs bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white px-5 py-3 rounded-xl border-b-4 border-emerald-800 font-bold active:translate-y-1 shadow-lg transition-all flex items-center gap-2">
                         <i class="fa-solid fa-play"></i> ¡INICIAR MISIÓN!
@@ -294,16 +294,16 @@
 
         function spawnEnemy() {
             const types = [
-                { emoji: '', points: 100, color: '#ef4444', glow: '#dc2626' },
-                { emoji: '', points: 150, color: '#a78bfa', glow: '#8b5cf6' },
-                { emoji: '', points: 200, color: '#f59e0b', glow: '#d97706' }
+                { emoji: '😈', points: 100, color: '#ef4444', glow: '#dc2626' },
+                { emoji: '👻', points: 150, color: '#a78bfa', glow: '#8b5cf6' },
+                { emoji: '🚫', points: 200, color: '#f59e0b', glow: '#d97706' }
             ];
             const type = types[Math.floor(Math.random() * types.length)];
             enemies.push({
-                x: Math.random() * (GAME_WIDTH - 40) + 20,
-                y: -40,
-                width: 40,
-                height: 40,
+                x: Math.random() * (GAME_WIDTH - 50) + 25,
+                y: -50,
+                width: 50,
+                height: 50,
                 speed: enemySpeed + Math.random() * 0.5,
                 type: type
             });
@@ -420,17 +420,17 @@
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             
-            // Dibujar enemigos con borde blanco y brillo
+            // Dibujar enemigos con borde blanco y brillo MEJORADO
             enemies.forEach(e => {
                 ctx.save();
-                ctx.shadowBlur = 20;
+                ctx.shadowBlur = 30;
                 ctx.shadowColor = e.type.glow;
                 ctx.strokeStyle = 'white';
-                ctx.lineWidth = 5;
+                ctx.lineWidth = 6;
                 ctx.font = `${e.width}px serif`;
-                ctx.strokeText(e.type.emoji, e.x + e.width/2, e.y + e.height/2);
+                ctx.strokeText(e.type.emoji, e.x + e.width/2, e.y + e.height/2 + 2);
                 ctx.fillStyle = e.type.emoji;
-                ctx.fillText(e.type.emoji, e.x + e.width/2, e.y + e.height/2);
+                ctx.fillText(e.type.emoji, e.x + e.width/2, e.y + e.height/2 + 2);
                 ctx.restore();
             });
 
@@ -438,7 +438,7 @@
             bullets.forEach(b => {
                 ctx.save();
                 ctx.shadowBlur = 15;
-                ctx.shadowColor = '#10b981';
+                ctx.shadowColor = '#34d399';
                 ctx.fillStyle = '#34d399';
                 ctx.fillRect(b.x, b.y, b.width, b.height);
                 ctx.restore();
@@ -451,7 +451,7 @@
             ctx.strokeStyle = 'white';
             ctx.lineWidth = 5;
             ctx.font = '44px serif';
-            ctx.strokeText('', player.x + player.width/2, player.y + player.height/2 + 4);
+            ctx.strokeText('💚', player.x + player.width/2, player.y + player.height/2 + 4);
             ctx.fillStyle = '#10b981';
             ctx.fillText('💚', player.x + player.width/2, player.y + player.height/2 + 4);
             ctx.restore();
@@ -522,7 +522,7 @@
         }
 
         function copyLetter() {
-            const letterText = ` Día 3: El Regalo de los Amigos (Para Ivana)\n\n"En todo tiempo ama el amigo, y es como un hermano en tiempo de angustia." — Proverbios 17:17\n\n¡Querida Ivana! Hoy celebramos a las personas que eligieron quedarse en tu vida. Tienes amigos que te aman profundamente. ¡Feliz cuenta regresiva! 💚`;
+            const letterText = `🎁 Día 3: El Regalo de los Amigos (Para Ivana)\n\n"En todo tiempo ama el amigo, y es como un hermano en tiempo de angustia." — Proverbios 17:17\n\n¡Querida Ivana! Hoy celebramos a las personas que eligieron quedarse en tu vida. Tienes amigos que te aman profundamente. ¡Feliz cuenta regresiva! 💚`;
             
             navigator.clipboard.writeText(letterText).then(() => {
                 showToast("¡Mensaje copiado para Ivana!");
